@@ -1,0 +1,76 @@
+openapi: 3.0.0
+info:
+  title: API Details
+  description: |
+    ### This document describe APIs
+  version: 0.0.1
+paths:
+  /v1/user:
+    post:
+      summary: Signup User
+      operationId: signUp
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './api/schema/user.yaml#/CreateUser'
+      responses:
+        '201':
+          description: User successfully created.
+        '400':
+          description: Invalid request body.
+          content:
+            application/json:
+              schema:
+                $ref: './api/schema/common-objects.yaml#/Error'
+        '409':
+          description: User already exists.
+          content:
+            application/json:
+              schema:
+                $ref: './api/schema/common-objects.yaml#/Error'
+      tags:
+        - User
+
+  /v1/user/join:
+    post:
+      summary: Join Faucet
+      operationId: Join Faucet
+      responses:
+        '200':
+          description: Joined sucessfully
+          content:
+            application/json:
+              schema:
+                $ref: './api/schema/user.yaml#/User'
+        '401':
+          description: Authentication failed.
+      tags:
+        - User
+  /v1/user/transfer:
+    post:
+      summary: Transfer Money
+      operationId: transferTo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './api/schema/user.yaml#/Transfer'
+      responses:
+        '200':
+          description: transfer successfully
+        '400':
+          description: Invalid request body or insuffient funds.
+          content:
+            application/json:
+              schema:
+                $ref: './api/schema/common-objects.yaml#/Error'
+        '401':
+          description: Authentication failed.
+      tags:
+        - User
+tags:
+  - name: User
+    description: User APIs

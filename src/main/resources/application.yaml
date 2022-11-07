@@ -1,0 +1,14 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  data:
+    mongodb:
+      database: sample-app
+      host: localhost
+      port: 27017
+
+app:
+  join:
+    amount: 5000
+    reset: 5

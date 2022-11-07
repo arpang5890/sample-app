@@ -1,0 +1,45 @@
+User:
+  type: object
+  description: User Object
+  properties:
+    id:
+      type: string
+    userName:
+      type: string
+    firstName:
+      type: string
+    lastName:
+      type: string
+  required:
+    - id
+    - password
+
+CreateUser:
+  type: object
+  description: User Object
+  properties:
+    userName:
+      type: string
+      minimum: 4
+    password:
+      type: string
+      minimum: 4
+    firstName:
+      type: string
+    lastName:
+      type: string
+  required:
+    - userName
+    - password
+
+Transfer:
+  type: object
+  description: Transfer amount
+  properties:
+    transferTo:
+      type: string
+    amount:
+      type: long
+  required:
+    - transferTo
+    - amount

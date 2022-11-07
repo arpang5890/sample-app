@@ -1,0 +1,16 @@
+Error:
+  description: Common error response body
+  required:
+    - code
+    - message
+  properties:
+    code:
+      description: >-
+        An internal code that can be used by support/developers to quickly locate the line of code that generated
+        the error response.
+      type: string
+    message:
+      description: A human-readable error message
+      type: string
+    details:
+      type: object
