@@ -46,6 +46,7 @@ public class UserService {
     userRepository.addBalance(userName, balanceToAddOnJoining, shouldJoinBefore);
   }
 
+  //TODO: Here we can use mongo (4.0+) transaction management
   public void transfer(final String transferFrom, final ApiTransfer apiTransfer) {
     User transferTo = userRepository.findByUserName(apiTransfer.getTransferTo());
     if (transferTo == null) {
